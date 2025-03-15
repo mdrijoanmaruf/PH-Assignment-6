@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <title>English Janala</title>
+
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        .eng{
+            font-family: "Poppins", sans-serif;
+        }
+        .bangla{
+            font-family: "Hind Siliguri", sans-serif;
+        }        
+        #mobileNav {
+            transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+            opacity: 0;
+        }
+
+        #mobileNav.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .active{
+            background-color: rgb(66,42,213);
+            color: white;
+        }
+    </style>
+</head>
+<body class="eng">
+    <!-- Log In , Hero Section -->
+     <!-- Will remove Hidden -->
+    <section id="logInHero" class="md:max-w-7xl w-[94%] mx-auto md:min-h-[70vh] mb-10 ">
+        <div class="flex gap-6 md:flex-row flex-col-reverse items-center">
+            <div class="flex flex-col gap-4 md:w-[70%]">
+                <h1 class="text-4xl font-[700]"><span class="text-[#00BCFF]">English</span> is Easy!!</h1>
+                <p class="bangla md:w-[85%] text-[20px] font-[500] text-[#18181B] opacity-85">
+                    আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
+                </p>
+                <div class="flex flex-col gap-2 md:w-[50%]">
+                    <input id="userName" class="border-[#18181B33] text-[16px] font-[400] text-[#18181B80] px-4 py-2 rounded-md " type="text" placeholder="Enter your name" value="Md Rijoan Maruf">
+                    <input class="border-[#18181B33] text-[16px] font-[400] text-[#18181B80] px-4 py-2 rounded-md " type="password" name="" id="userPass" placeholder="Enter password (123456)" value="123456">
+                    <div>
+                        <button id="submit" class="cursor-pointer border bg-[#422AD5] rounded-md text-[16px] font-[600] text-[#E0E7FF] px-4 py-2 hover:bg-[#523ed3] hover:text-white">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="assets/hero-student.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Section -->
+     <!-- Will add hidden class -->
+     <main id="main" class=" min-h-[70vh] hidden"> 
+        <!-- Header Part -->
+        <header class="bg-gray-100 sticky top-0 z-30">
+            <div class="flex justify-between items-center py-4 w-[94%] md:max-w-7xl mx-auto">
+                <div class="flex items-center">
+                    <h1 class="text-[20px] font-[600] text-[#18181B]">English</h1>
+                    <img src="assets/logo.png" alt="">
+                    <h1 class="bangla text-[20px] font-[600] text-[#18181B]">জানালা</h1>
+                </div>
+                <!-- For Desktop -->
+                <div class="gap-4 hidden md:flex">
+                    <div>
+                        <a href="#faq">
+                            <button class="border-3 border-[rgb(66,42,213)] text-[rgb(66,42,213)] text-[14px] px-4 py-2 cursor-pointer rounded-md hover:text-white hover:bg-[rgb(66,42,213)] font-[600]">
+                                <i class="fa-solid fa-question"></i>
+                                <span>FAQ</span>
+                            </button>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#learn">
+                            <button class="border-3 border-[rgb(66,42,213)] text-[rgb(66,42,213)] text-[14px] px-4 py-2 cursor-pointer rounded-md hover:text-white hover:bg-[rgb(66,42,213)] font-[600]">
+                                <i class="fa-solid fa-book"></i>
+                                <span>Learn</span>
+                            </button>
+                        </a>
+                    </div>
+                    <div>
+                        <button id="logOut" class="border-3 border-[rgb(66,42,213)] text-[rgb(66,42,213)] text-[14px] px-4 py-2 cursor-pointer rounded-md hover:text-white hover:bg-[rgb(66,42,213)] font-[600]">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- For Mobile -->
+                <div  id="menuToggle" class="md:hidden">
+                    <i  class="fa-solid fa-bars text-[25px] cursor-pointer menu-icon"></i>
+                </div>
+                <div id="closeMenu" class="hidden">
+                    <i  class="fa-solid fa-x text-[25px] cursor-pointer close-icon"></i>
+                </div>
+            </div>
+            <hr class="border-[1.5px] border-[rgb(255,235,235)] ">
+        </header>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileNav" class="bg-gray-200 sticky top-[50px] w-full z-10 hidden">
+            <ul class="flex flex-col items-center pr-10 pt-15">
+                <li>
+                   <a href="#faq">
+                    <button  onclick="closeNavMenu();" class="border-[rgb(66,42,213)] text-[rgb(66,42,213)] text-[20px] px-4 py-2 cursor-pointer rounded-md hover:text-white hover:bg-[rgb(66,42,213)] font-[600]">
+                        <i class="fa-solid fa-question"></i>
+                        <span>FAQ</span>
+                    </button>
+                   </a>
+                    <hr>
+                </li>
+                <li>
+                    <a href="#learn">
+                        <button onclick="closeNavMenu();" class="border-[rgb(66,42,213)] text-[rgb(66,42,213)] text-[20px] px-4 py-2 cursor-pointer rounded-md hover:text-white hover:bg-[rgb(66,42,213)] font-[600]">
+                            <i class="fa-solid fa-book"></i>
+                            <span>Learn</span>
+                        </button>
+                    </a>
+                    <hr>
+                </li>
+                <li class="mb-6">
+                    <button id="logOut" class="border-[rgb(66,42,213)] text-[rgb(66,42,213)] text-[20px] px-4 py-2 cursor-pointer rounded-md hover:text-white hover:bg-[rgb(66,42,213)] font-[600]">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Logout</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        
+
+
+        <!-- Lets Learn Vocabularies -->
+         <div id="learn"></div>
+        <section  class="md:max-w-7xl mx-auto w-[94%] my-[100px]">
+            <div>
+                <h1 class="text-center text-[32px] font-[700] py-4"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies</h1>
+            </div>
+            <div id="navContainer" class="flex flex-wrap gap-4 justify-center">
+                <!-- Buttons will be add hear -->
+            </div>
+            <div id="">
+                <!-- Not Selected -->
+                <div id="notSelected">
+                    <div  class="py-18 rounded-lg bg-gray-100 mt-6">
+                        <p class="text-center bangla text-[14px] font-[600] opacity-70">
+                            আপনি এখনো কোন Lesson Select করেন নি
+                        </p>
+                        <h1 class="bangla text-center text-[#292524] text-[32px] font-[600] mt-2">
+                            একটি Lesson Select করুন।
+                        </h1>
+                    </div>
+                </div>
+
+                <!-- Loading -->
+                <div id="loading" class="hidden justify-center items-center h-[300px] mt-6 rounded-lg bg-gray-100">
+                    <span class="loading loading-dots loading-xl"></span>
+                </div>
+
+                <!-- Data -->
+                <div id="lessonContainer" class="hidden md:grid-cols-3 gap-6 p-6 bg-gray-100 rounded-lg mt-6">
+                    
+                </div>
+
+                <div id="nextLesson" class="hidden">
+                    <div class="flex flex-col justify-center items-center py-18 mt-6 rounded-lg bg-gray-100 ">
+                        <div>
+                            <img src="assets/alert-error.png" alt="">
+                        </div>
+                        <p class="bangla font-[400] text-[14px] text-[#79716B]">
+                            এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।
+                        </p>
+                        <h2 class="bangla text-[38px] font-[600] text-[#292524]">
+                            নেক্সট Lesson এ যান
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            
+         </section>
+
+
+         <!-- Modal Pop UP -->
+        <dialog id="modalBox" class="modal">
+            <div class="modal-box">
+                <div id="modalBoxContainer">
+                    
+                </div>
+                <form method="dialog">
+                    <div class="flex justify-end">
+                        <button class="btn bg-green-600 text-white">Complete Learning</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </dialog>
+
+        
+
+
+
+
+
+        <!-- FAQ -->
+         <div id="faq"></div>
+         <section  class="md:max-w-7xl mx-auto w-[94%] my-6">
+            <div>
+                <h1 class="text-center text-[32px] font-[700] py-4"><span class="text-[#00BCFF]">Frequently</span> Asked Questions</h1>
+            </div>
+            <div class="flex flex-col gap-4">
+                <div tabindex="0" class="collapse collapse-plus bg-base-100 border-base-300 border rounded-md">
+                    <div class="collapse-title font-semibold">
+                        1. what is the difference between var, let and const? 
+                    </div>
+                    <div class="collapse-content text-sm">
+                        Var is function-scoped, hoisted, and allows re-declaration and reassignment, while let and const are block-scoped and not initialized before use. let allows reassignment but not re-declaration, whereas const prevents both but allows modifications to objects and arrays.
+                    </div>
+                </div>
+                <div tabindex="0" class="collapse collapse-plus bg-base-100 border-base-300 border rounded-md">
+                    <div class="collapse-title font-semibold">
+                        2. what is the difference between map(), froEach() and filter()? 
+                    </div>
+                    <div class="collapse-content text-sm">
+                        map(), forEach(), and filter() are array methods with different purposes. map() creates a new array by transforming each element, forEach() executes a function on each element without returning a new array, and filter() returns a new array containing only elements that meet a specified condition.
+                    </div>
+                </div>
+                <div tabindex="0" class="collapse collapse-plus bg-base-100 border-base-300 border rounded-md">
+                    <div class="collapse-title font-semibold">
+                        3. What are arrow functions, and how are they different form regular functions?
+                    </div>
+                    <div class="collapse-content text-sm">
+                        Arrow functions in JavaScript are a shorter syntax for writing functions using =>, and they do not have their own this, arguments, super, or new.target. Unlike regular functions, arrow functions inherit this from their surrounding scope, making them ideal for callbacks and methods where preserving context is important.
+                    </div>
+                </div>
+                <div tabindex="0" class="collapse collapse-plus bg-base-100 border-base-300 border rounded-md">
+                    <div class="collapse-title font-semibold">
+                        4. How do javaSript Promises work?
+                    </div>
+                    <div class="collapse-content text-sm">
+                        JavaScript Promises handle asynchronous operations by representing a value that may be available now, later, or never. They have three states—pending, fulfilled, or rejected—and use .then() for success handling and .catch() for errors.
+                    </div>
+                </div>
+                <div tabindex="0" class="collapse collapse-plus bg-base-100 border-base-300 border rounded-md">
+                    <div class="collapse-title font-semibold">
+                        5. How does closer work in javaSript?
+                    </div>
+                    <div class="collapse-content text-sm">
+                        A closure in JavaScript occurs when a function remembers and accesses variables from its outer scope even after the outer function has finished executing. This allows functions to maintain private variables and is commonly used for data encapsulation and callbacks.
+                    </div>
+                </div>
+            </div>
+         </section>
+     </main>
+
+
+     <!-- Footer Section -->
+    <footer>
+        <hr class="border-[1.5px] border-[rgb(255,235,235)] ">
+        <div class="md:max-w-7xl w-[94%] mx-auto py-[60px] flex justify-between flex-col md:flex-row gap-4">
+            <div>
+                <div class="flex items-center mb-3">
+                    <h1 class="text-[20px] font-[600] text-[#18181B]">English</h1>
+                    <img src="assets/logo.png" alt="">
+                    <h1 class="bangla text-[20px] font-[600] text-[#18181B]">জানালা</h1>
+                </div>
+                <div>
+                    <h2 class="bangla text-[20px] font-[500]">ইংরেজি শিখুন সহজে</h2>
+                    <p class="text-[16px] font-[400]">Providing ED-Tech Applications since 2025</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col justify-end gap-2">
+                <h3 class="text-[16px] font-[600] opacity-85">FOLLOW US</h3>
+                <div class="flex gap-4 text-xl">
+                    <a href="https://github.com/mdrijoanmaruf" target="_blank">
+                        <i class="fa-brands fa-github cursor-pointer"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mdrijoanmaruf/" target="_blank">
+                        <i class="fa-brands fa-linkedin cursor-pointer"></i>
+                    </a>
+                    <a href="https://www.facebook.com/md.rijoanmaruf" target="_blank">
+                        <i class="fa-brands fa-facebook cursor-pointer"></i>
+                    </a>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="JS/Auth.js"></script>
+    <script src="JS/MobileNav.js"></script>
+    <script src="JS/Lesson.js"></script>
+    
+      
+</body>
+</html>
