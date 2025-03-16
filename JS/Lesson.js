@@ -159,7 +159,7 @@ function pronounceWord(word) {
     utterance.lang = 'en-EN'; 
     window.speechSynthesis.speak(utterance);
 }
-
+ 
 fetchLessonMenu()
 
 
